@@ -19,12 +19,12 @@ the assignment operator has a rhs perameter, and the copy construcot has a peram
 in some cases the assignment operator could call the copy constructor, if the array class is designed that way.
 
 3)I made sure I used a deep copy on both the copy construcotr, and the assignment operator. That way the pointer to the array dosn't get deleated
-when it's not supose to. Also running the program with the debugger, and testing the class.
+when it's not supose to. Also running the program with the debugger, and testing the class. Also, making sure in the destructor all memory that was allocated gets deleated.
 
-4) In big O notation, when a user calls [] to get an ellement the noation is 0(46). This could be improved by changing the deep copy the instruction class does,
+4) In big O notation, when a user calls [] to get an ellement the noation is 0(n). This could be improved by changing the deep copy the instruction class does,
 and indtead making it a showlow coppy that keeps track of the number of times the constructor is called, and only delete the memory when there is only 1 object pointer
-to the string. That would reduce the O notation to 0(2). Another way to increase eficeny is to make the exception checking an if statement, and an else if statment. That would reduce the notation by 1. 
-So the final notation with the improvements would be O(1). And the code inside the funciton call would look like this
+to the string. That would reduce the O notation to O(n). Another way to increase eficeny is to make the exception checking an if statement, and an else if statment. That would reduce the notation by 1. 
+So the final notation with the improvements would be O(n). And the code inside the funciton call would look like this
 
 if (index < m_start_index)
 {

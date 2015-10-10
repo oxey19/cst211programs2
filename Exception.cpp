@@ -49,6 +49,7 @@ Exception(const Exception& originalException)
 #include "Exception.h"
 
 /**************************************************************
+
 *   Entry:  a character array
 *    Exit:  the length of the character arry
 *
@@ -68,13 +69,29 @@ int getLength(char* msg)
 }
 
 //constructor
+/**************************************************************
+    Exception();
+*   Entry:  nothing
+*    Exit:  nothing
+*
+* Purpose:  Allows the user to create an Exception object
+*
+***************************************************************/
 Exception::Exception()
 {
 	m_length = 0;
 	m_msg = new char[m_length + 1];
 }
 
-//constructor overloaded with perameters
+/**************************************************************
+    Exception(char* msg);
+*   Entry:  a character array
+*    Exit:  nothing
+*
+* Purpose:  Allows the user to create an excepiton object while
+* also giving it the character array that will be the message
+*
+***************************************************************/
 Exception::Exception(char* msg)
 {
 	m_length = getLength(msg);
@@ -89,6 +106,8 @@ Exception::Exception(char* msg)
 }
 
 /**************************************************************
+    Exception(const Exception&);
+
 *   Entry:  An exception objcet
 *
 *    Exit:  a copy of the exceptoin object passedin
@@ -112,6 +131,8 @@ Exception::Exception(const Exception& originalException)
 
 
 /**************************************************************
+   ~Exception();
+
 *   Entry:  nothing
 *    Exit:  nothing
 *
@@ -127,6 +148,8 @@ Exception::~Exception()
 
 
 /**************************************************************
+   const char* getMessage();
+
 *   Entry:  nothing
 *    Exit:  the msg saved inside of the objcect
 *
@@ -141,6 +164,7 @@ const char* Exception::getMessage()
 
 
 /**************************************************************
+    void setMessage(char* msg);
 *   Entry:  A message
 *    Exit:  nothing
 *
@@ -161,6 +185,7 @@ void Exception::setMessage(char* msg)
 
 
 /**************************************************************
+ friend ostream& operator<<(ostream& os, const Exception& except);
 *   Entry:  An exceptiong object
 *    Exit:  the message array
 *
@@ -175,6 +200,7 @@ ostream &operator<<(ostream &os, const Exception& except)
 
 
 /**************************************************************
+    Exception& operator=(const Exception& rhs);
 *   Entry:  An exception object
 *    Exit:  this objcet
 *

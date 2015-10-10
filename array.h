@@ -156,6 +156,7 @@ m_start_index(originalArray.getStartIndex())
 }
 
 /**************************************************************
+
 *   Entry:  nothing
 *
 *    Exit:  nothing
@@ -172,6 +173,7 @@ template<class Type> Array<Type>::~Array()
 //operator overloading
 
 /**************************************************************
+
 *   Entry:  the array object that the user wants to copy
 *
 *    Exit:  the modified array
@@ -307,6 +309,28 @@ template<class Type> int Array<Type>::getLength() const
 **************************************************************/
 template<class Type> void Array<Type>::setLength(int length)
 {
+
+	//m_array = new Type[m_length];
+
 	m_length = length;
+
+	Type *tempArray; 
+	tempArray = new Type[length];
+
+	for (int i = 0; i < length; i++)
+	{
+		tempArray[i] = m_array[i];
+	}
+
 	m_array = new Type[m_length];
+
+	for (int i = 0; i < length; i++)
+	{
+		m_array[i] = tempArray[i];
+	}
+
+
+
+	delete tempArray;
+	
 }
